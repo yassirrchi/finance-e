@@ -32,7 +32,7 @@ public class UserServicesImpl implements UserServices {
             if(!utilisateur.getPassword().equals(userLogin.getPassword()))
                 return null;
             System.out.println("user  exist");
-            return UserDTO.builder().username(utilisateur.getUsername()).build();
+            return UserDTO.builder().username(utilisateur.getUsername()).id(utilisateur.getId()).build();
         }
 
 

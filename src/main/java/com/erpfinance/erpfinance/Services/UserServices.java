@@ -5,4 +5,5 @@ import com.erpfinance.erpfinance.Requests.UserLogin;
 
 public interface UserServices {
     public UserDTO login(UserLogin userLogin);
+
 }

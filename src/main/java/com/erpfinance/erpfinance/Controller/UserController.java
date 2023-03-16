@@ -20,7 +20,7 @@ public class UserController {
     private UserServices userServices;
     @PostMapping("/login")
     public ResponseEntity<UserDTO> login(@RequestBody UserLogin userLogin){
-       // System.out.println(userLogin.getUsername()+" "+userLogin.getPassword());
+       System.out.println(userLogin.getUsername()+" "+userLogin.getPassword());
         UserDTO userDTO=userServices.login(userLogin);
         if(userDTO==null){
             System.out.println("wrong pwd");
