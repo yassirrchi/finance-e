@@ -26,6 +26,7 @@ public class ErpFinanceApplication {
 			user.setUsername("yassir");
 			user.setPassword("123");
 
+
 			Wallet portefeuille=new Wallet();
 			portefeuille.setCode("CDG_BDT");
 			portefeuille.setName("CDG_BDT_NAME");

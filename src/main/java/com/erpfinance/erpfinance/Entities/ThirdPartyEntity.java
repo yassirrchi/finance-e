@@ -1,16 +1,15 @@
 package com.erpfinance.erpfinance.Entities;
 
 import com.erpfinance.erpfinance.Entities.Enumerations.Status;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.erpfinance.erpfinance.Entities.Enumerations.ThirdPartyType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -31,6 +30,9 @@ public class ThirdPartyEntity {
     private boolean bank;
     private boolean counterparty;
     private boolean custodian;
+
+    @ElementCollection(targetClass = ThirdPartyType.class)
+    private List<ThirdPartyType> type;
 
 
 
