@@ -21,6 +21,7 @@ public class WalletServiceImpl implements WalletService {
         newWallet.setCode(wallet.getCode());
         newWallet.setExternal_code(wallet.getExternal_code());
         newWallet.setStatus(wallet.getStatus());
+        newWallet.setActive(wallet.isActive());
 
         //other details
 

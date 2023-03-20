@@ -1,5 +1,6 @@
 package com.erpfinance.erpfinance;
 
+import com.erpfinance.erpfinance.Entities.Enumerations.Status;
 import com.erpfinance.erpfinance.Entities.UserAndRoles.User;
 import com.erpfinance.erpfinance.Entities.Wallet;
 import com.erpfinance.erpfinance.Repositories.UserRepository;
@@ -25,16 +26,33 @@ public class ErpFinanceApplication {
 			User user=new User();
 			user.setUsername("yassir");
 			user.setPassword("123");
+			userRepository.save(user);
 
 
 			Wallet portefeuille=new Wallet();
 			portefeuille.setCode("CDG_BDT");
 			portefeuille.setName("CDG_BDT_NAME");
 			portefeuille.setExternal_code("MA787493");
+
+			portefeuille.setStatus(Status.DRAFT);
 			portefeuille.setActive(false);
 
 			walletRepository.save(portefeuille);
 			userRepository.save(user);
+			portefeuille=new Wallet();
+			portefeuille.setCode("TEST_TEST");
+			portefeuille.setName("TEST_NAME");
+			portefeuille.setExternal_code("TEST_EXTCODE");
+			portefeuille.setActive(true);
+			portefeuille.setStatus(Status.SUBMIT);
+
+
+			walletRepository.save(portefeuille);
+			user=new User();
+			user.setUsername("omar");
+			user.setPassword("123");
+			userRepository.save(user);
+
 
 
 
