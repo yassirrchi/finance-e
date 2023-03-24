@@ -1,15 +1,21 @@
 package com.erpfinance.erpfinance;
 
 import com.erpfinance.erpfinance.Entities.Enumerations.Status;
+import com.erpfinance.erpfinance.Entities.Fund;
+import com.erpfinance.erpfinance.Entities.OperationNote;
+import com.erpfinance.erpfinance.Entities.ThirdPartyEntity;
 import com.erpfinance.erpfinance.Entities.UserAndRoles.User;
 import com.erpfinance.erpfinance.Entities.Wallet;
-import com.erpfinance.erpfinance.Repositories.UserRepository;
-import com.erpfinance.erpfinance.Repositories.WalletRepository;
+import com.erpfinance.erpfinance.Repositories.*;
 import com.erpfinance.erpfinance.Services.UserServicesImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @SpringBootApplication
 public class ErpFinanceApplication {
@@ -20,7 +26,7 @@ public class ErpFinanceApplication {
 
 	}
 	@Bean
-	CommandLineRunner init(UserRepository userRepository, UserServicesImpl userServices, WalletRepository walletRepository){
+	CommandLineRunner init(ThirdPartyEntityRepository thirdPartyEntityRepository,UserRepository userRepository, UserServicesImpl userServices, WalletRepository walletRepository, FundRepository fundRepository, OperationNoteRepository operationNoteRepository){
 
 		return args -> {
 			User user=new User();
@@ -52,6 +58,40 @@ public class ErpFinanceApplication {
 			user.setUsername("omar");
 			user.setPassword("123");
 			userRepository.save(user);
+
+			Fund fund=new Fund();
+			fund.setActive(false);
+			fund.setCode("hdjhdjd");
+			fund.setStatus(Status.DRAFT);
+			fundRepository.save(fund);
+			OperationNote operationNote=new OperationNote();
+			operationNote.setWallet(portefeuille);
+			operationNote.setFund(fund);
+
+			ThirdPartyEntity tp=new ThirdPartyEntity();
+			tp.setName("krrna");
+			tp.setCounterparty(true);
+
+			List<ThirdPartyEntity> op= new ArrayList<>();
+			//thirdPartyEntityRepository.save(tp);
+
+
+
+			op.add(thirdPartyEntityRepository.save(tp));
+			tp=new ThirdPartyEntity();
+			tp.setName("eeeeeeee");
+			tp.setCounterparty(false);
+			op.add(thirdPartyEntityRepository.save(tp));
+
+
+			operationNote.setThirdPartyEntities(op);
+
+
+			operationNoteRepository.save(operationNote);
+
+
+
+
 
 
 

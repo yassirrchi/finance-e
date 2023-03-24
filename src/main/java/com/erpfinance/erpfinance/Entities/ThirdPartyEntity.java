@@ -2,6 +2,7 @@ package com.erpfinance.erpfinance.Entities;
 
 import com.erpfinance.erpfinance.Entities.Enumerations.Status;
 import com.erpfinance.erpfinance.Entities.Enumerations.ThirdPartyType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,8 @@ public class ThirdPartyEntity {
     private boolean bank;
     private boolean counterparty;
     private boolean custodian;
+
+
 
     @ElementCollection(targetClass = ThirdPartyType.class)
     private List<ThirdPartyType> type;

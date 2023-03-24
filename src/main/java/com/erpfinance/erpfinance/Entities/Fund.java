@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -16,20 +15,16 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class Wallet {
+public class Fund {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String code;
     private String name;
     private boolean active;
-    private String external_code;
     private Status status;
-    private LocalDate opening_date;
-    private LocalDate closing_date;
     @JsonIgnore
-    @OneToMany(mappedBy = "wallet")
+    @OneToMany(mappedBy = "fund")
     private List<OperationNote> operationNotes;
-
 
 }
