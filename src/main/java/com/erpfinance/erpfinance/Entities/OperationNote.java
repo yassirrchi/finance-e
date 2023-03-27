@@ -18,7 +18,7 @@ import java.util.Set;
 @Builder
 public class OperationNote {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "wallet_id")

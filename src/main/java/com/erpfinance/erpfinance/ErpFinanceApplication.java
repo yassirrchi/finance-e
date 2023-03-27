@@ -64,6 +64,11 @@ public class ErpFinanceApplication {
 			fund.setCode("hdjhdjd");
 			fund.setStatus(Status.DRAFT);
 			fundRepository.save(fund);
+			Fund fund2=new Fund();
+			fund2.setActive(true);
+			fund2.setCode("424sffs");
+			fund2.setStatus(Status.SUBMIT);
+			fundRepository.save(fund2);
 			OperationNote operationNote=new OperationNote();
 			operationNote.setWallet(portefeuille);
 			operationNote.setFund(fund);

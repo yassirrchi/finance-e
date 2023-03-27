@@ -10,11 +10,15 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OperationNoteRequest {
-    private Long fundId;
-    private Long counterPartyAccountId;
-
-    private Long interbankId;
-    private Long custodianId;
+    private Long fundid;
+    private Long counterid;
+    private Long walletid;
+    private Long status;
+    private Long quantity;
+    private Long price;
+    private Long gamount;
+    private Long typeop;
+    private Long custodianid;
     private LocalDate value_date;
 
 
