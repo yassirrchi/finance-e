@@ -13,23 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class FundController {
     @Autowired
     private FundServices fundServices;
-
-
     @PostMapping("/create")
     public ResponseEntity<?> createFund(@RequestBody ThirdPartyEntity thirdPartyEntity){
-
-
-
-
-
         return new ResponseEntity<>(null,HttpStatus.resolve(200));
     }
     @GetMapping("/all")
     public ResponseEntity<?> getAllFunds(){
         return new ResponseEntity<>(fundServices.getAllFunds(),HttpStatus.resolve(200));
-
-
-
     }
 
 

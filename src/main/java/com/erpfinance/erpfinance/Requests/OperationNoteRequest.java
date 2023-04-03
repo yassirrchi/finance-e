@@ -14,12 +14,14 @@ public class OperationNoteRequest {
     private Long counterid;
     private Long walletid;
     private Long status;
-    private Long quantity;
-    private Long price;
-    private Long gamount;
+    private int quantity;
+    private int price;
+    private int gamount;
     private Long typeop;
     private Long custodianid;
     private LocalDate value_date;
+    private Long createdby;
+    ;
 
 
 

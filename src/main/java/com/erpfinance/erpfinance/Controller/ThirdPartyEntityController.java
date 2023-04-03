@@ -16,21 +16,14 @@ import java.util.List;
 public class ThirdPartyEntityController {
     @Autowired
     private ThirdPartyEntityServices thirdPartyEntityServices;
-
     @PostMapping("/create")
     public ResponseEntity<?> createThirdPartyEntity(@RequestBody ThirdPartyEntity thirdPartyEntity){
         System.out.println("okey "+thirdPartyEntity.getName()+thirdPartyEntity.isCounterparty()+thirdPartyEntity.isBank()+thirdPartyEntity.isCustodian());
         ThirdPartyEntity thirdParty=thirdPartyEntityServices.createThirdPartyEntity(thirdPartyEntity);
                 if(thirdParty==null)
                     return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-
-
-
-
         return new ResponseEntity<>(thirdParty,HttpStatus.resolve(200));
     }
-
-
     @GetMapping("/all")
     public ResponseEntity<?> getAllThirdPartyEntites(){
         List<ThirdPartyEntity> allThirdParties;

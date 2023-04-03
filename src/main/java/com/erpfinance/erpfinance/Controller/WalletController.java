@@ -25,8 +25,6 @@ public class WalletController {
 
         return new ResponseEntity<>(savedWallet, HttpStatus.resolve(200));
 
-
-
     };
     @GetMapping("/all")
     public ResponseEntity<List<Wallet>> getAllWallets(){

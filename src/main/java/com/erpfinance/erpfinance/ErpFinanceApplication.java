@@ -79,19 +79,17 @@ public class ErpFinanceApplication {
 
 			List<ThirdPartyEntity> op= new ArrayList<>();
 			//thirdPartyEntityRepository.save(tp);
-
-
-
 			op.add(thirdPartyEntityRepository.save(tp));
 			tp=new ThirdPartyEntity();
 			tp.setName("eeeeeeee");
 			tp.setCounterparty(false);
 			op.add(thirdPartyEntityRepository.save(tp));
-
+			operationNote.setQuantity(20);
+			operationNote.setGross_amount(2000);
+			operationNote.setPrice(100);
 
 			operationNote.setThirdPartyEntities(op);
-
-
+			operationNote.setCreatedby(user);
 			operationNoteRepository.save(operationNote);
 
 

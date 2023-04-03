@@ -19,23 +19,19 @@ public class OperationNoteController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllOperationNotes(){
 
-
-
-
-
         return new ResponseEntity<>(operationNoteServices.getAllOperationNotes(),HttpStatus.resolve(200));
     }
     @PostMapping("/create")
     public ResponseEntity<?> createOperationNote(@RequestBody OperationNoteRequest operationNoteRequest){
 
-
-        System.out.println(operationNoteRequest.getFundid()+" "+operationNoteRequest.getQuantity()+" "+operationNoteRequest.getPrice()+operationNoteRequest.getWalletid()+" "+operationNoteRequest.getStatus());
-
-
-
-
-
+        System.out.println(operationNoteRequest.getCreatedby()+"<= user / fundid=> "+operationNoteRequest.getFundid()+" quantity=>"+operationNoteRequest.getQuantity()+" price=>"+operationNoteRequest.getPrice()+" walletid=>"+operationNoteRequest.getWalletid()+" status=>"+operationNoteRequest.getStatus());
         return new ResponseEntity<>(operationNoteServices.createOperationNote(operationNoteRequest),HttpStatus.resolve(200));
+
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getAllOperationNotes(@PathVariable Long id){
+
+        return new ResponseEntity<>(operationNoteServices.getOperationNoteById(id),HttpStatus.resolve(200));
     }
 
 }

@@ -32,10 +32,5 @@ public class UserController {
             return new ResponseEntity<>(userDTO, HttpStatus.resolve(200));
         }
 
-
-
-
-
-
     }
 }
