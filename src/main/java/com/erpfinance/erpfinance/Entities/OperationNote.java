@@ -1,5 +1,7 @@
 package com.erpfinance.erpfinance.Entities;
 
+import com.erpfinance.erpfinance.Entities.Enumerations.OperationType;
+import com.erpfinance.erpfinance.Entities.Enumerations.Status;
 import com.erpfinance.erpfinance.Entities.Enumerations.ThirdPartyType;
 import com.erpfinance.erpfinance.Entities.UserAndRoles.User;
 import jakarta.persistence.*;
@@ -23,7 +25,11 @@ public class OperationNote {
     private Long id;
     private int quantity;
     private int price;
+    private OperationType type;
+    private Status status;
     private int gross_amount;
+    private LocalDate op_date;
+    private LocalDate val_date;
     @ManyToOne
     @JoinColumn(name = "wallet_id")
     private Wallet wallet;

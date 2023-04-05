@@ -23,8 +23,9 @@ public class OperationNoteController {
     }
     @PostMapping("/create")
     public ResponseEntity<?> createOperationNote(@RequestBody OperationNoteRequest operationNoteRequest){
+        System.out.println(operationNoteRequest.getOp_date()+" "+operationNoteRequest.getVal_date()+" "+operationNoteRequest.getStatus()+" "+operationNoteRequest.getOp_type());
 
-        System.out.println(operationNoteRequest.getCreatedby()+"<= user / fundid=> "+operationNoteRequest.getFundid()+" quantity=>"+operationNoteRequest.getQuantity()+" price=>"+operationNoteRequest.getPrice()+" walletid=>"+operationNoteRequest.getWalletid()+" status=>"+operationNoteRequest.getStatus());
+        //System.out.println(operationNoteRequest.getCreatedby()+"<= user / fundid=> "+operationNoteRequest.getFundid()+" quantity=>"+operationNoteRequest.getQuantity()+" price=>"+operationNoteRequest.getPrice()+" walletid=>"+operationNoteRequest.getWalletid()+" status=>"+operationNoteRequest.getStatus());
         return new ResponseEntity<>(operationNoteServices.createOperationNote(operationNoteRequest),HttpStatus.resolve(200));
 
     }

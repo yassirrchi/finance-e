@@ -74,7 +74,7 @@ public class ErpFinanceApplication {
 			operationNote.setFund(fund);
 
 			ThirdPartyEntity tp=new ThirdPartyEntity();
-			tp.setName("krrna");
+			tp.setName("okey");
 			tp.setCounterparty(true);
 
 			List<ThirdPartyEntity> op= new ArrayList<>();

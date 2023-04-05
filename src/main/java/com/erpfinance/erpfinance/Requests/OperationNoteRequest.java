@@ -15,6 +15,9 @@ public class OperationNoteRequest {
     private Long walletid;
     private Long status;
     private int quantity;
+    private int op_type;
+    private String val_date;
+    private String op_date;
     private int price;
     private int gamount;
     private Long typeop;
