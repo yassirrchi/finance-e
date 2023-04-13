@@ -1,5 +1,6 @@
 package com.erpfinance.erpfinance.Controller;
 
+import com.erpfinance.erpfinance.Entities.Fund;
 import com.erpfinance.erpfinance.Entities.ThirdPartyEntity;
 import com.erpfinance.erpfinance.Services.FundServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class FundController {
     @Autowired
     private FundServices fundServices;
     @PostMapping("/create")
-    public ResponseEntity<?> createFund(@RequestBody ThirdPartyEntity thirdPartyEntity){
-        return new ResponseEntity<>(null,HttpStatus.resolve(200));
+    public ResponseEntity<?> createFund(@RequestBody Fund fund){
+        return new ResponseEntity<>(fundServices.createFund(fund),HttpStatus.resolve(200));
     }
     @GetMapping("/all")
     public ResponseEntity<?> getAllFunds(){

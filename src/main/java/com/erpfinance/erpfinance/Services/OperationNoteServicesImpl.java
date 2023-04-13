@@ -62,17 +62,14 @@ public class OperationNoteServicesImpl implements OperationNoteServices {
         newOperationNote.setQuantity(operationNoteRequest.getQuantity());
         newOperationNote.setPrice(operationNoteRequest.getPrice());
         newOperationNote.setGross_amount(operationNoteRequest.getGamount());
-
         newOperationNote.setType(operationNoteRequest.getOp_type()==0? OperationType.BUY_EQUITY:OperationType.SELL_EQUITY);
-
-        newOperationNote.setGross_amount(operationNoteRequest.getGamount());
         DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy-MM-dd");
         newOperationNote.setOp_date(LocalDate.parse(operationNoteRequest.getOp_date(), dtf));
         newOperationNote.setVal_date(LocalDate.parse(operationNoteRequest.getVal_date(), dtf));
 
         newOperationNote.setStatus(operationNoteRequest.getStatus()==0? Status.DRAFT:Status.SUBMIT);
         Ticket ticket=new Ticket();
-        ticket.setTestMessage(newOperationNote.getCreatedby().getUsername()+" a creer une operation");
+        ticket.setTestMessage(newOperationNote.getCreatedby().getUsername()+" a cree une operation");
         ticketRepository.save(ticket);
 
 
